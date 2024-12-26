@@ -3,10 +3,129 @@
 @tailwind utilities;
 
 html,
-body {
-  @apply bg-white dark:bg-gray-950;
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+/* Light mode color variables (default) */
+:root {
+  /* Background & text */
+  --color-bg: #ffffff;
+  --color-text: #181818;
+
+  /* Brand colors */
+  --color-primary: #ffa500; /* Orange as requested */
+  --color-secondary: #56b7db;
+  --color-accent: #f77fbe;
+
+  /* Semantic or role-based colors */
+  --color-card: #f4f4f4;
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-warning: #ff9800;
+  --color-info: #2196f3;
+
+  /* Example extra brand tokens */
+  --color-brand-dark: #ff8f00;
+  --color-brand-light: #ffdda8;
+}
+
+/* Dark mode color variables (default for dark preference) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #181818;
+    --color-text: #ffffff;
+
+    --color-primary: #ff8f00; /* Deeper orange for dark mode */
+    --color-secondary: #2b9cbf;
+    --color-accent: #e5589f;
+
+    --color-card: #2a2a2a;
+    --color-success: #51c853;
+    --color-error: #f76c5e;
+    --color-warning: #ffad32;
+    --color-info: #35baf6;
+    --color-brand-dark: #c76a00;
+    --color-brand-light: #ffac4f;
   }
+}
+
+/* Base styles using variables */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: sans-serif;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Example custom section */
+.my-custom-section {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-primary);
+  padding: 16px;
+  color: var(--color-text);
 }

@@ -10,6 +10,11 @@ import {
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
 
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -41,9 +46,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
-
+const queryClient = new QueryClient();
 export default function App() {
-  return <Outlet />;
+  return (
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <Outlet />
+      </QueryClientProvider>
+    </Provider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
